@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdulaziz Auto Tech | Expert Auto Repairs in Abuja</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: {
+                            950: '#0a0d14',
+                            900: '#111622',
+                            800: '#1a2234',
+                            700: '#26324a'
+                        },
+                        neon: {
+                            blue: '#00f2fe',
+                            cyan: '#4facfe',
+                            accent: '#2563eb'
+                        }
+                    },
+                    boxShadow: {
+                        'neon': '0 0 25px rgba(0, 242, 254, 0.25)',
+                        'neon-lg': '0 0 40px rgba(0, 242, 254, 0.35)'
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a0d14;
+            color: #f8fafc;
+        }
+        .glass-card {
+            background: rgba(26, 34, 52, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(0, 242, 254, 0.15);
+        }
+        .glass-card:hover {
+            border-color: rgba(0, 242, 254, 0.4);
+            box-shadow: 0 0 20px rgba(0, 242, 254, 0.15);
+        }
+        .hero-bg {
+            background-image: linear-gradient(to bottom, rgba(10, 13, 20, 0.85), rgba(10, 13, 20, 0.95)), url('https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=2000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-dark-950 text-slate-100 antialiased selection:bg-neon-blue selection:text-dark-950">
+
+    <!-- 1. Navigation Bar -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-dark-950/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Left: Brand Logo -->
+            <a href="#" class="flex items-center gap-2 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 to-neon-blue flex items-center justify-center shadow-neon">
+                    <i data-lucide="wrench" class="w-5 h-5 text-dark-950 font-bold"></i>
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-lg sm:text-xl font-black tracking-tight text-white group-hover:text-neon-blue transition-colors">
+                        Abdulaziz <span class="text-neon-blue">Auto Tech</span>
+                    </span>
+                    <span class="text-[10px] tracking-widest text-slate-400 uppercase font-semibold">Abuja, Nigeria</span>
+                </div>
+            </a>
+
+            <!-- Center: Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a href="#home" class="text-sm font-medium text-slate-300 hover:text-neon-blue transition-colors">Home</a>
+                <a href="#services" class="text-sm font-medium text-slate-300 hover:text-neon-blue transition-colors">Services</a>
+                <a href="#testimonials" class="text-sm font-medium text-slate-300 hover:text-neon-blue transition-colors">Testimonials</a>
+                <a href="#location" class="text-sm font-medium text-slate-300 hover:text-neon-blue transition-colors">Location</a>
+            </nav>
+
+            <!-- Right: High-Visibility CTA Button & Mobile Menu Toggle -->
+            <div class="flex items-center gap-4">
+                <a href="tel:08161184805" class="hidden sm:inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-semibold px-5 py-2.5 rounded-xl shadow-neon transition-all duration-300 transform hover:-translate-y-0.5">
+                    <i data-lucide="phone-call" class="w-4 h-4"></i>
+                    <span>Call Now: 0816 118 4805</span>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="menu-btn" class="md:hidden p-2.5 rounded-xl bg-dark-800 text-slate-300 hover:text-neon-blue border border-slate-700 focus:outline-none">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden absolute top-20 left-0 w-full bg-dark-900 border-b border-slate-800 px-6 py-6 space-y-4 shadow-2xl transition-all">
+            <a href="#home" class="mobile-link block text-base font-medium text-slate-200 hover:text-neon-blue">Home</a>
+            <a href="#services" class="mobile-link block text-base font-medium text-slate-200 hover:text-neon-blue">Services</a>
+            <a href="#testimonials" class="mobile-link block text-base font-medium text-slate-200 hover:text-neon-blue">Testimonials</a>
+            <a href="#location" class="mobile-link block text-base font-medium text-slate-200 hover:text-neon-blue">Location</a>
+            <div class="pt-2">
+                <a href="tel:08161184805" class="w-full flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-500 text-white font-semibold py-3 rounded-xl shadow-neon">
+                    <i data-lucide="phone-call" class="w-4 h-4"></i>
+                    <span>Call: 0816 118 4805</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Premium Hero Section -->
+    <section id="home" class="hero-bg min-h-screen pt-32 pb-20 flex items-center relative overflow-hidden">
+        <!-- Neon Ambient Glow Orbs -->
+        <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-96 h-96 bg-blue-500/15 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-10 right-10 w-80 h-80 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
+            <div class="max-w-3xl">
+                <!-- Badge -->
+                <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-950/80 border border-blue-500/30 text-neon-blue text-xs sm:text-sm font-medium mb-6 shadow-neon">
+                    <span class="w-2 h-2 rounded-full bg-neon-blue animate-pulse"></span>
+                    <span>Abuja's Trusted Diagnostic & Repair Facility • Open 24/7</span>
+                </div>
+
+                <!-- Main Headline -->
+                <h1 class="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-[1.1] mb-6">
+                    Expert Auto Repairs with <span class="text-transparent bg-clip-text bg-gradient-to-r from-neon-blue to-cyan-400">Real Integrity</span> in Abuja
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="text-lg sm:text-xl text-slate-300 mb-10 leading-relaxed font-normal">
+                    Fast, affordable, and honest mechanical engineering. No unnecessary upsells, no hidden fees—just reliable service to get you back on the road.
+                </p>
+
+                <!-- Action Buttons -->
+                <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+                    <a href="#location" class="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold px-8 py-4 rounded-xl shadow-neon-lg transition-all duration-300 transform hover:-translate-y-0.5 text-center">
+                        <i data-lucide="map-pin" class="w-5 h-5"></i>
+                        <span>Get Directions (Area 11, Garki)</span>
+                    </a>
+                    
+                    <a href="tel:08161184805" class="inline-flex items-center justify-center gap-2 bg-dark-800 hover:bg-dark-700 text-white font-bold px-8 py-4 rounded-xl border border-blue-500/30 hover:border-blue-500/60 transition-all duration-300 text-center">
+                        <i data-lucide="phone" class="w-5 h-5 text-neon-blue"></i>
+                        <span>Call 0816 118 4805</span>
+                    </a>
+                </div>
+
+                <!-- Trust Metrics / Highlights Bar -->
+                <div class="mt-16 grid grid-cols-2 sm:grid-cols-3 gap-6 pt-8 border-t border-slate-800/80">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-neon-blue">
+                            <i data-lucide="shield-check" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">100% Honest</h4>
+                            <p class="text-xs text-slate-400">Zero hidden charges</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-neon-blue">
+                            <i data-lucide="clock" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Open 24 Hours</h4>
+                            <p class="text-xs text-slate-400">Mon–Sat availability</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-3 col-span-2 sm:col-span-1">
+                        <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center text-neon-blue">
+                            <i data-lucide="award" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white font-bold text-sm">Expert Techs</h4>
+                            <p class="text-xs text-slate-400">Advanced equipment</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Core Differentiators Grid (4-column modern glassmorphic card component) -->
+    <section class="py-24 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-neon-blue mb-3">Why Drivers Choose Us</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Built on Trust, Precision & Speed</h3>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Differentiator 1: Integrity -->
+                <div class="glass-card p-8 rounded-2xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-neon-blue mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="check-circle" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Integrity</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Real diagnostics, zero predatory upsells. We only fix what's broken and show you the exact problem firsthand.
+                    </p>
+                </div>
+
+                <!-- Differentiator 2: Affordability -->
+                <div class="glass-card p-8 rounded-2xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-neon-blue mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="tag" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Affordability</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Fair, transparent local rates that beat excessive dealership costs without compromising on quality parts.
+                    </p>
+                </div>
+
+                <!-- Differentiator 3: Speed -->
+                <div class="glass-card p-8 rounded-2xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-neon-blue mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="zap" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Speed</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Fast turnarounds and efficient workflows to minimize your downtime and get you back moving safely in Abuja.
+                    </p>
+                </div>
+
+                <!-- Differentiator 4: Expertise -->
+                <div class="glass-card p-8 rounded-2xl transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-neon-blue mb-6 group-hover:scale-110 transition-transform">
+                        <i data-lucide="cpu" class="w-7 h-7"></i>
+                    </div>
+                    <h4 class="text-xl font-bold text-white mb-3">Expertise</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Skillful mechanical and auto-tech engineering equipped for modern computerised engines and complex electrical systems.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Services Offered Grid -->
+    <section id="services" class="py-24 bg-dark-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-neon-blue mb-3">Our Core Services</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Comprehensive Auto Engineering Solutions</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Service 1 -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col sm:flex-row gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex-shrink-0 flex items-center justify-center text-white shadow-neon">
+                        <i data-lucide="activity" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <h4 class="text-2xl font-bold text-white">Advanced Engine Diagnostics</h4>
+                            <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-neon-blue text-xs font-semibold">Computerized</span>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Pinpoint check engine lights, sensor faults, fuel injection issues, and emission anomalies using state-of-the-art diagnostic scanners for all car brands.
+                        </p>
+                        <ul class="grid grid-cols-2 gap-2 text-xs text-slate-400">
+                            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-neon-blue"></i> ECU Scanning & Flashing</li>
+                            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-neon-blue"></i> Sensor Calibration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col sm:flex-row gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex-shrink-0 flex items-center justify-center text-white shadow-neon">
+                        <i data-lucide="disc" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <h4 class="text-2xl font-bold text-white">Brake & Suspension Overhauls</h4>
+                            <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-neon-blue text-xs font-semibold">Safety First</span>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Complete brake pad replacements, rotor resurfacing, ABS servicing, shock absorbers, control arms, and alignment tuning for bumpy roads.
+                        </p>
+                        <ul class="grid grid-cols-2 gap-2 text-xs text-slate-400">
+                            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-neon-blue"></i> ABS Troubleshooting</li>
+                            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-neon-blue"></i> Suspension Tuning</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col sm:flex-row gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex-shrink-0 flex items-center justify-center text-white shadow-neon">
+                        <i data-lucide="droplet" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <h4 class="text-2xl font-bold text-white">Scheduled Maintenance & Oil Changes</h4>
+                            <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-neon-blue text-xs font-semibold">Routine Care</span>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Premium synthetic oil changes, fluid flushing (coolant, transmission, brake fluid), filter replacements, and thorough multi-point vehicle health checks.
+                        </p>
+                        <ul class="grid grid-cols-2 gap-2 text-xs text-slate-400">
+                            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-neon-blue"></i> Synthetic Engine Oils</li>
+                            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-neon-blue"></i> Transmission Servicing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="glass-card p-8 rounded-2xl flex flex-col sm:flex-row gap-6 items-start">
+                    <div class="w-16 h-16 rounded-2xl bg-gradient-to-tr from-blue-600 to-cyan-500 flex-shrink-0 flex items-center justify-center text-white shadow-neon">
+                        <i data-lucide="zap" class="w-8 h-8"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-3 mb-2">
+                            <h4 class="text-2xl font-bold text-white">Electrical & Auto-Tech Troubleshooting</h4>
+                            <span class="px-2.5 py-0.5 rounded-full bg-blue-500/20 text-neon-blue text-xs font-semibold">High Tech</span>
+                        </div>
+                        <p class="text-slate-300 text-sm leading-relaxed mb-4">
+                            Expert repair of complex wiring harnesses, alternator/starter motor overhauls, battery testing, power windows, AC climate control, and ECU repairs.
+                        </p>
+                        <ul class="grid grid-cols-2 gap-2 text-xs text-slate-400">
+                            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-neon-blue"></i> Alternator & Starter</li>
+                            <li class="flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5 text-neon-blue"></i> Climate Control / AC</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Customer Testimonials -->
+    <section id="testimonials" class="py-24 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-neon-blue mb-3">Customer Feedback</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Trusted by Drivers Across Abuja</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Review 1 -->
+                <div class="glass-card p-8 rounded-2xl relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 mb-6">
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                        </div>
+                        <p class="text-slate-200 text-base sm:text-lg leading-relaxed mb-6 italic">
+                            "If you want expert service with real integrity, look no further. Highly recommend Abdul Aziz Auto Tech – they've earned a customer for life!"
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-6 border-t border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-600/30 border border-blue-500/50 flex items-center justify-center text-neon-blue font-bold">
+                                A
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-sm">Afolabikhadijat1</h5>
+                                <span class="text-xs text-slate-400">Verified Google Review</span>
+                            </div>
+                        </div>
+                        <i data-lucide="quote" class="w-8 h-8 text-blue-500/20"></i>
+                    </div>
+                </div>
+
+                <!-- Review 2 -->
+                <div class="glass-card p-8 rounded-2xl relative flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-amber-400 mb-6">
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                            <i data-lucide="star" class="w-5 h-5 fill-amber-400"></i>
+                        </div>
+                        <p class="text-slate-200 text-base sm:text-lg leading-relaxed mb-6 italic">
+                            "Absolutely the best in the business! I brought my car to Abdul Aziz Auto Tech after being quoted outrageous prices elsewhere... service was fast, affordable, and Abdul and his team were honest and professional."
+                        </p>
+                    </div>
+                    <div class="flex items-center justify-between pt-6 border-t border-slate-800">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-full bg-blue-600/30 border border-blue-500/50 flex items-center justify-center text-neon-blue font-bold">
+                                AO
+                            </div>
+                            <div>
+                                <h5 class="text-white font-bold text-sm">Ademola O.</h5>
+                                <span class="text-xs text-slate-400">Verified Google Review</span>
+                            </div>
+                        </div>
+                        <i data-lucide="quote" class="w-8 h-8 text-blue-500/20"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Location & Operating Hours -->
+    <section id="location" class="py-24 bg-dark-950 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-xs font-bold uppercase tracking-widest text-neon-blue mb-3">Find Our Workshop</h2>
+                <h3 class="text-3xl sm:text-4xl font-extrabold text-white">Conveniently Located in Garki, Abuja</h3>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Left Details Box -->
+                <div class="lg:col-span-5 glass-card p-8 sm:p-10 rounded-2xl flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-xl bg-blue-600/20 border border-blue-500/40 flex items-center justify-center text-neon-blue">
+                                <i data-lucide="map-pin" class="w-6 h-6"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-lg">Workshop Address</h4>
+                                <p class="text-xs text-neon-blue">Area 11, Garki Corridor</p>
+                            </div>
+                        </div>
+
+                        <p class="text-slate-300 text-base leading-relaxed mb-8">
+                            Area 11 Ahmadu Bello Way, opposite Skyewise Group, Garki, Abuja, Federal Capital Territory.
+                        </p>
+
+                        <div class="space-y-6 pt-6 border-t border-slate-800">
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/30 flex-shrink-0 flex items-center justify-center text-neon-blue mt-1">
+                                    <i data-lucide="clock" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-bold text-sm mb-1">Operating Hours</h5>
+                                    <p class="text-slate-300 text-sm">Mon–Sat: <span class="text-neon-blue font-semibold">Open 24 Hours</span></p>
+                                    <p class="text-slate-300 text-sm">Sun: <span class="text-slate-200">8:00 AM – 12:00 AM</span></p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start gap-4">
+                                <div class="w-10 h-10 rounded-lg bg-blue-600/10 border border-blue-500/30 flex-shrink-0 flex items-center justify-center text-neon-blue mt-1">
+                                    <i data-lucide="phone-call" class="w-5 h-5"></i>
+                                </div>
+                                <div>
+                                    <h5 class="text-white font-bold text-sm mb-1">Direct Hotline</h5>
+                                    <a href="tel:08161184805" class="text-neon-blue font-bold text-lg hover:underline">0816 118 4805</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 pt-6">
+                        <a href="https://maps.google.com/?q=Ahmadu+Bello+Way+Garki+Abuja" target="_blank" class="w-full flex items-center justify-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-bold py-3.5 rounded-xl shadow-neon transition-all">
+                            <i data-lucide="navigation" class="w-4 h-4"></i>
+                            <span>Open in Google Maps</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Embedded Map Window -->
+                <div class="lg:col-span-7 glass-card p-3 rounded-2xl overflow-hidden min-h-[400px]">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3939.992298687425!2d7.5020!3d9.0195!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0bcf773bfb81%3A0x6b772b8d0e74b340!2sAhmadu%20Bello%20Way%2C%20Garki%2C%20Abuja!5e0!3m2!1sen!2sng!4v1650000000000!5m2!1sen!2sng" 
+                        class="w-full h-full rounded-xl border-0 min-h-[400px]" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Final Call-to-Action Banner & Footer -->
+    <section class="py-16 bg-dark-900 relative border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Mid-width Banner -->
+            <div class="glass-card bg-gradient-to-r from-blue-950/80 via-dark-900 to-cyan-950/80 p-8 sm:p-12 rounded-3xl border border-blue-500/30 text-center relative overflow-hidden shadow-neon-lg mb-16">
+                <div class="absolute -right-16 -top-16 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl pointer-events-none"></div>
+                
+                <h3 class="text-2xl sm:text-4xl font-extrabold text-white mb-4 relative z-10">
+                    Experiencing Car Trouble on the Road in Abuja?
+                </h3>
+                <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8 relative z-10">
+                    Don't risk guessing or overpaying. Call Abdulaziz Auto Tech right now for immediate troubleshooting, expert advice, or workshop booking.
+                </p>
+                <div class="flex flex-wrap items-center justify-center gap-4 relative z-10">
+                    <a href="tel:08161184805" class="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-500 hover:to-cyan-400 text-white font-extrabold px-8 py-4 rounded-xl shadow-neon transition-all transform hover:-translate-y-0.5">
+                        <i data-lucide="phone-call" class="w-5 h-5"></i>
+                        <span>Call 0816 118 4805 Now</span>
+                    </a>
+                    <a href="#location" class="inline-flex items-center gap-2 bg-dark-800 hover:bg-dark-700 text-white font-semibold px-8 py-4 rounded-xl border border-slate-700 transition-all">
+                        <i data-lucide="map-pin" class="w-5 h-5 text-neon-blue"><span>Visit Workshop</span></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Footer Details -->
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6 pt-8 border-t border-slate-800 text-center md:text-left">
+                <div class="flex items-center gap-2">
+                    <div class="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white">
+                        <i data-lucide="wrench" class="w-4 h-4"></i>
+                    </div>
+                    <span class="text-base font-bold text-white">Abdulaziz Auto Tech</span>
+                </div>
+
+                <div class="flex items-center gap-6 text-sm text-slate-400">
+                    <a href="#home" class="hover:text-neon-blue transition-colors">Home</a>
+                    <a href="#services" class="hover:text-neon-blue transition-colors">Services</a>
+                    <a href="#testimonials" class="hover:text-neon-blue transition-colors">Testimonials</a>
+                    <a href="#location" class="hover:text-neon-blue transition-colors">Location</a>
+                </div>
+
+                <p class="text-xs text-slate-500">
+                    &copy; <span id="current-year">2026</span> Abdulaziz Auto Tech. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Initialization Scripts -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Set current year dynamically
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
